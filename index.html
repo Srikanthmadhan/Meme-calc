@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Scientific Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="header">
+            <h1 id="modeTitle">Standard Calculator</h1>
+        </div>
+
+        <div class="display-container">
+            <div class="display" id="display">0</div>
+            <div class="display-history" id="displayHistory"></div>
+            <div class="meme-output" id="memeOutput"></div>
+        </div>
+        
+        <div class="controls-section">
+            <div class="mode-selector">
+                <button class="mode-btn active" data-mode="classic">Standard</button>
+                <button class="mode-btn" data-mode="scientific">Scientific</button>
+            </div>
+            <div class="angle-selector">
+                <input type="radio" id="deg" name="angle" value="DEG" checked>
+                <label for="deg">DEG</label>
+                <input type="radio" id="rad" name="angle" value="RAD">
+                <label for="rad">RAD</label>
+            </div>
+        </div>
+
+        <div id="keypads">
+            <!-- Standard Keypad -->
+            <div class="buttons" id="keypadClassic">
+                <button class="btn func" data-action="clear-all">AC</button>
+                <button class="btn func" data-action="clear">CE</button>
+                <button class="btn func" data-action="del">⌫</button>
+                <button class="btn operator" data-value="/">÷</button>
+
+                <button class="btn number" data-value="7">7</button>
+                <button class="btn number" data-value="8">8</button>
+                <button class="btn number" data-value="9">9</button>
+                <button class="btn operator" data-value="*">×</button>
+
+                <button class="btn number" data-value="4">4</button>
+                <button class="btn number" data-value="5">5</button>
+                <button class="btn number" data-value="6">6</button>
+                <button class="btn operator" data-value="-">-</button>
+                
+                <button class="btn number" data-value="1">1</button>
+                <button class="btn number" data-value="2">2</button>
+                <button class="btn number" data-value="3">3</button>
+                <button class="btn operator" data-value="+">+</button>
+
+                <button class="btn number" data-action="negate">+/-</button>
+                <button class="btn number" data-value="0">0</button>
+                <button class="btn number" data-value=".">.</button>
+                <button class="btn equals" data-action="equals">=</button>
+            </div>
+
+            <!-- Scientific Keypad -->
+            <div class="buttons scientific-layout hidden" id="keypadScientific">
+                <!-- Row 1 -->
+                <button class="btn scientific" data-fn="sin">sin</button>
+                <button class="btn scientific" data-fn="cos">cos</button>
+                <button class="btn scientific" data-fn="tan">tan</button>
+                <button class="btn scientific" data-fn="log">log</button>
+                <button class="btn scientific" data-fn="ln">ln</button>
+                
+                <!-- Row 2 -->
+                <button class="btn scientific" data-fn="asin">sin⁻¹</button>
+                <button class="btn scientific" data-fn="acos">cos⁻¹</button>
+                <button class="btn scientific" data-fn="atan">tan⁻¹</button>
+                <button class="btn scientific" data-fn="sqrt">√</button>
+                <button class="btn scientific" data-fn="cbrt">∛</button>
+                
+                <!-- Row 3 -->
+                <button class="btn scientific" data-fn="pow">xʸ</button>
+                <button class="btn scientific" data-fn="square">x²</button>
+                <button class="btn scientific" data-fn="cube">x³</button>
+                <button class="btn scientific" data-fn="fact">n!</button>
+                <button class="btn scientific" data-fn="exp">eˣ</button>
+                
+                <!-- Row 4 -->
+                <button class="btn scientific" data-const="π">π</button>
+                <button class="btn scientific" data-const="e">e</button>
+                <button class="btn scientific" data-fn="inv">1/x</button>
+                <button class="btn scientific" data-fn="abs">|x|</button>
+                <button class="btn scientific" data-action="clear-all">AC</button>
+                
+                <!-- Row 5 -->
+                <button class="btn scientific" data-mem="MC">MC</button>
+                <button class="btn scientific" data-mem="MR">MR</button>
+                <button class="btn scientific" data-mem="M+">M+</button>
+                <button class="btn scientific" data-mem="M-">M-</button>
+                <button class="btn scientific" data-action="del">⌫</button>
+                
+                <!-- Row 6 -->
+                <button class="btn scientific" data-value="(">(</button>
+                <button class="btn scientific" data-value="7">7</button>
+                <button class="btn scientific" data-value="8">8</button>
+                <button class="btn scientific" data-value="9">9</button>
+                <button class="btn operator" data-value="/">÷</button>
+                
+                <!-- Row 7 -->
+                <button class="btn scientific" data-value=")">)</button>
+                <button class="btn scientific" data-value="4">4</button>
+                <button class="btn scientific" data-value="5">5</button>
+                <button class="btn scientific" data-value="6">6</button>
+                <button class="btn operator" data-value="*">×</button>
+                
+                <!-- Row 8 -->
+                <button class="btn scientific" data-value="%">%</button>
+                <button class="btn scientific" data-value="1">1</button>
+                <button class="btn scientific" data-value="2">2</button>
+                <button class="btn scientific" data-value="3">3</button>
+                <button class="btn operator" data-value="-">-</button>
+                
+                <!-- Row 9 -->
+                <button class="btn scientific" data-action="negate">+/-</button>
+                <button class="btn scientific" data-value="0">0</button>
+                <button class="btn scientific" data-value=".">.</button>
+                <button class="btn equals" data-action="equals">=</button>
+                <button class="btn operator" data-value="+">+</button>
+            </div>
+        </div>
+
+        <div class="share-section" id="shareSection" style="display: none;">
+            <button class="share-btn" id="btnShare">📱 Share Result</button>
+            <button class="share-btn" id="btnDownload">💾 Download</button>
+        </div>
+    </div>
+    
+    <div class="error-overlay" id="errorOverlay" style="display: none;">
+        <div class="error-content">
+            <img id="errorImage" src="templates/error.jpg" alt="Error">
+            <p id="errorMessage">Calculation Error</p>
+            <button class="error-close" onclick="closeError()">Close</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
