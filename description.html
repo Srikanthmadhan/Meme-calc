@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Calculator - Image Descriptions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            color: #667eea;
+            margin: 30px 0 15px 0;
+            font-size: 1.8em;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin: 20px 0 10px 0;
+            font-size: 1.3em;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .meme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .meme-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .meme-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .meme-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .meme-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .meme-description {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .feature-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+        }
+
+        .error-section {
+            background: #fff5f5;
+            border: 2px solid #fed7d7;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .meme-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+
+            .meme-image {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="font-family: 'Georgia', serif; font-size: 3em; margin-bottom: 10px;">
+            <span style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;">Memulator</span>
+            <span style="font-size: 0.4em; color: #666; display: block; margin-top: -10px;">Meme Calculator</span>
+        </h1>
+        
+        <p>Welcome to <span class="highlight">Memulator</span> - the unique calculator that displays your calculation results using funny meme images instead of traditional numbers. Here's what each image represents:</p>
+
+        <h2>🔢 Number Memes (0-9)</h2>
+        <div class="meme-grid">
+            <div class="meme-item">
+                <img class="meme-image" src="templates/0.jpg" alt="Meme 0">
+                <div class="meme-number">0</div>
+                <div class="meme-description">Simpsons "zero" gag image - cartoon style with yellow characters showing comedic reaction around the number 0</div>
+            </div>
+            <div class="meme-item">
+                <img class="meme-image" src="templates/1.png" alt="Meme 1">
+                <div class="meme-number">1</div>
+                <div class="meme-description">Doctor Strange holding up one finger from Avengers: Endgame - serious face with clear "one" gesture</div>
+            </div>
+            <div class="meme-item">
+                <img class="meme-image" src="templates/2.jpg" alt="Meme 2">
+                <div class="meme-number">2</div>
+                <div class="meme-description">Jayalalitha showing two fingers - peace/2 sign from the Tamil Nadu political figure</div>
+            </div>
+            <div class="meme-item">
+                <img class="meme-image" src="templates/3.png" alt="Meme 3">
+                <div class="meme-number">3</div>
+                <div class="meme-description">Three Spider-Men pointing at each other - Tobey, Andrew, and Tom in the classic multiverse meme</div>
+            </div>
+            <div class="meme-item">
+                <img class="meme-image" src="templates/4.jpg" alt="Meme 4">
+                <div class="meme-number">4</div>
+                <div class="meme-description">Person showing four fingers toward the camera - close-up hand gesture for "four"</div>
+            </div>
+            <div class="meme-item">
+                <img class="meme-image" src="templates/5.jpg" alt="Meme 5">
+                <div class="meme-number">5</div>
+                <div class="meme-description">The Rock with palm out in a "stop/halt" pose - bold hand raised with sunglasses</div>
+            </div>
+            <div class="meme-item">
+                <img class="meme-image" src="templates/6.jpg" alt="Meme 6">
+                <div class="meme-number">6</div>
+                <div class="meme-description">"6 or 9" perspective cartoon - two people arguing over a number on the ground showing the ambiguity of 6 vs 9</div>
+            </div>
+            <div class="meme-item">
+                <img class="meme-image" src="templates/7.jpg" alt="Meme 7">
+                <div class="meme-number">7</div>
+                <div class="meme-description">Cristiano Ronaldo celebrating with his "7" branding - footballer celebration linked to number seven</div>
+            </div>
+            <div class="meme-item">
+                <img class="meme-image" src="templates/8.jpg" alt="Meme 8">
+                <div class="meme-number">8</div>
+                <div class="meme-description">Neptune planet photo - blue gas giant representing the astronomy/space connection to number eight</div>
+            </div>
+            <div class="meme-item">
+                <img class="meme-image" src="templates/9.jpg" alt="Meme 9">
+                <div class="meme-number">9</div>
+                <div class="meme-description">Same as 6.jpg by design - the 6/9 perspective meme reused for nine, showing the clever dual interpretation</div>
+            </div>
+        </div>
+
+        <h2>❌ Error Meme</h2>
+        <div class="error-section">
+            <h3>When Calculations Go Wrong...</h3>
+            <div class="meme-item" style="max-width: 300px; margin: 0 auto;">
+                <img class="meme-image" src="templates/error.jpg" alt="Error Meme">
+                <div class="meme-number">Error</div>
+                <div class="meme-description">The classic "This is fine" dog in burning room - when your calculation goes completely wrong!</div>
+            </div>
+            <p>This meme appears whenever there's a calculation error, like dividing by zero, taking the square root of a negative number, or any other mathematical impossibility.</p>
+        </div>
+
+        <h2>🎯 How It Works</h2>
+        <div class="feature-section">
+            <h3>Display System</h3>
+            <p>Instead of showing boring traditional numbers, our calculator displays each digit of your result as a corresponding meme image:</p>
+            <ul>
+                <li><strong>Single digits (0-9):</strong> Each number has its own unique meme character</li>
+                <li><strong>Multi-digit numbers:</strong> Memes are displayed in sequence from left to right</li>
+                <li><strong>Decimal numbers:</strong> A large blue dot appears for the decimal point</li>
+                <li><strong>Negative numbers:</strong> A red minus sign appears before the number</li>
+            </ul>
+        </div>
+
+        <div class="feature-section">
+            <h3>Calculator Features</h3>
+            <ul>
+                <li><strong>Standard Mode:</strong> Basic arithmetic operations (+, -, ×, ÷)</li>
+                <li><strong>Scientific Mode:</strong> Advanced functions like sin, cos, tan, log, square roots, and more</li>
+                <li><strong>Memory Functions:</strong> Store and recall previous calculations</li>
+                <li><strong>Angle Modes:</strong> Switch between degrees (DEG) and radians (RAD)</li>
+                <li><strong>Share Results:</strong> Share your meme-tastic calculations with friends</li>
+            </ul>
+        </div>
+
+        <h2>🎭 Meme Culture</h2>
+        <p>Each meme was carefully selected to represent its number in a fun and memorable way. These aren't just random images - they're iconic internet memes that have been repurposed to make math more entertaining!</p>
+
+        <p>The collection includes classic reaction memes, popular format memes, and culturally significant internet moments that have been transformed into a unique numerical display system.</p>
+
+        <div class="feature-section" style="background: linear-gradient(135deg, #e8f4fd 0%, #d1ecf1 100%); border-left: 5px solid #17a2b8; margin-top: 30px;">
+            <h3>🤝 Contribute to Meme Calculator</h3>
+            <p>Help us improve the Meme Calculator! We're always looking for:</p>
+            <ul>
+                <li>New meme suggestions for numbers</li>
+                <li>Better quality images</li>
+                <li>Feature requests and feedback</li>
+                <li>Bug reports</li>
+                <li>Translation help for other languages</li>
+            </ul>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfRdcGL5GVkFRrY6t4hZeTGb7S90WV_ZwKucOHZm7Vwioo3IA/viewform?usp=dialog" 
+                   target="_blank" 
+                   class="back-button" 
+                   style="background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);">
+                    📋 Contribute via Google Form
+                </a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="index.html" class="back-button">← Back to Calculator</a>
+        </div>
+    </div>
+</body>
+</html>
